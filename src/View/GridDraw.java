@@ -44,12 +44,10 @@ public class GridDraw extends JComponent implements MouseListener,KeyListener {
             for(int j=0;j<9;j++){
                 if(displayed.getTab()[j][i].isSelected()){
                     g.setColor(Color.green);
-                    g.fillRect(j*50, i*50,50,50);
-                    g.setColor(Color.black);
-                }else{
-                    g.setColor(Color.black);
+                    g.fillRect(j*50, i*50,50,50);                   
                 }
-               
+                g.setColor(Color.black);
+                
                 g.drawRect(j*50, i*50,50,50);
                 if(displayed.getTab()[j][i].getNumber()!=0){
                     if(displayed.getTab()[j][i].isDisplayed()){
@@ -158,14 +156,81 @@ public class GridDraw extends JComponent implements MouseListener,KeyListener {
            }
            
            
-       }  
+       }
+        System.out.println(e.getKeyChar());
+       
+        
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
    
-       
+       if(e.getKeyCode()==e.VK_UP){ //Top arrow
+           boolean move=true;
+           for(int i=0;i<9;i++){
+            for(int j=0;j<9;j++){
+                if(displayed.getTab()[j][i].isSelected() && move){
+                      if(i!=0){
+                          displayed.getTab()[j][i].setSelected(false);
+                          displayed.getTab()[j][i-1].setSelected(true);
+                          move=false;
+                          this.repaint();
+                          
+                      }
+                }
+            }
+        }      
+       }
+        if(e.getKeyCode()==e.VK_DOWN){ //Bottom Arrow
+            boolean move=true;
+           for(int i=0;i<9;i++){
+            for(int j=0;j<9;j++){
+                if(displayed.getTab()[j][i].isSelected() && move){
+                      if(i!=8){
+                          displayed.getTab()[j][i].setSelected(false);
+                          displayed.getTab()[j][i+1].setSelected(true);
+                          move=false;
+                          this.repaint();
+                          
+                      }
+                }
+            }
+        }      
+       }
+       if(e.getKeyCode()==e.VK_RIGHT){ //Right Arrow
+           boolean move=true;
+           for(int i=0;i<9;i++){
+            for(int j=0;j<9;j++){
+                if(displayed.getTab()[j][i].isSelected() && move){
+                      if(j!=8){
+                          displayed.getTab()[j][i].setSelected(false);
+                          displayed.getTab()[j+1][i].setSelected(true);
+                          move=false;
+                          this.repaint();
+                          
+                      }
+                }
+            }
+        }      
+       }
+        if(e.getKeyCode()==e.VK_LEFT){ //LeftArrow
+            boolean move=true;
+           for(int i=0;i<9;i++){
+            for(int j=0;j<9;j++){
+                if(displayed.getTab()[j][i].isSelected() && move){
+                      if(j!=0){
+
+                          displayed.getTab()[j][i].setSelected(false);
+                          displayed.getTab()[j-1][i].setSelected(true);
+                          move=false;
+                          this.repaint();
+                          
+                      }
+                }
+            }
+        }      
+       }
     
     }
 
