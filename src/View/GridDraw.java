@@ -79,6 +79,8 @@ public class GridDraw extends JComponent implements MouseListener,KeyListener {
                     }
                 }
             }
+        }else{
+            result=false;
         }
         return result;
     }
@@ -152,7 +154,7 @@ public class GridDraw extends JComponent implements MouseListener,KeyListener {
         } 
            this.repaint();
            if(this.isGridCorrect()){
-               
+               WinPopUp wp = new WinPopUp();
            }
            
            

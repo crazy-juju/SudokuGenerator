@@ -126,7 +126,7 @@ public class GlobalView extends JFrame implements ActionListener {
         this.setJMenuBar(bar);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.init_Grid();
-        System.out.println(this.correction.ConsoleDisplay());
+
       // pano.start_chrono();
        
         
